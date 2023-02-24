@@ -22,21 +22,6 @@ export class App extends Component {
     }));
   };
 
-  // addContact = ({ name, number }) => {
-  //   const { contacts } = this.state;
-  //   const newContact = { id: nanoid(), name, number };
-
-  //   contacts.some(contact => contact.name === name)
-  //     ? Report.warning(
-  //         `${name}`,
-  //         'This user is already in the contact list.',
-  //         'OK'
-  //       )
-  //     : this.setState(({ contacts }) => ({
-  //         contacts: [newContact, ...contacts],
-  //       }));
-  // };
-
   render() {
     return (
       <div>
