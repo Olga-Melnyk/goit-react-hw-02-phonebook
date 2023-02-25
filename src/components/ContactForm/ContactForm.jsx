@@ -1,6 +1,14 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
+
+import {
+  ContainerForm,
+  Label,
+  Input,
+  ErrorForm,
+  FormBtn,
+} from './ContactForm.styled';
 
 const RecipeSchema = Yup.object().shape({
   name: Yup.string()
@@ -38,20 +46,20 @@ export const ContactForm = ({ onSubmit }) => {
         actions.resetForm();
       }}
     >
-      <Form>
-        <label>
+      <ContainerForm>
+        <Label>
           Name
-          <Field type="text" name="name" />
-          <ErrorMessage name="name" component="span" />
-        </label>
-        <label>
+          <Input type="text" name="name" />
+          <ErrorForm name="name" component="span" />
+        </Label>
+        <Label>
           Number
-          <Field type="tel" name="number" />
-          <ErrorMessage name="number" component="span" />
-        </label>
+          <Input type="tel" name="number" />
+          <ErrorForm name="number" component="span" />
+        </Label>
 
-        <button type="submit">Add contact</button>
-      </Form>
+        <FormBtn type="submit">Add contact</FormBtn>
+      </ContainerForm>
     </Formik>
   );
 };
