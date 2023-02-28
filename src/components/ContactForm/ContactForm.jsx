@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
-import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 
 import {
   ContainerForm,
@@ -39,12 +39,15 @@ export const ContactForm = ({ onSubmit }) => {
       }}
       validationSchema={RecipeSchema}
       onSubmit={(values, actions) => {
-        onSubmit({
-          ...values,
-          id: nanoid(),
-        });
-        actions.resetForm();
+        onSubmit(values, actions);
       }}
+      // onSubmit={(values, actions) => {
+      //   onSubmit({
+      //     ...values,
+      //     id: nanoid(),
+      //   });
+      //   actions.resetForm();
+      // }}
     >
       <ContainerForm>
         <Label>
@@ -62,4 +65,8 @@ export const ContactForm = ({ onSubmit }) => {
       </ContainerForm>
     </Formik>
   );
+};
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func,
 };
